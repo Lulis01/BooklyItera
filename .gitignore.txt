@@ -1,0 +1,87 @@
+# Build results
+bin/
+obj/
+
+# Visual Studio files
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Rider / VS Code
+.idea/
+.vscode/
+
+# Logs
+*.log
+
+# NuGet packages
+*.nupkg
+packages/
+.nuget/
+project.lock.json
+project.assets.json
+
+# .NET Core
+*.runtimeconfig.dev.json
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# IIS Express
+iisexpress/
+*.vspscc
+*.vssscc
+
+# SQL Server files
+*.mdf
+*.ldf
+
+# Resharper
+_ReSharper*/
+*.DotSettings.user
+
+# DotCover
+*.dotCover
+
+# Publish output
+publish/
+*.publishproj
+
+# Azure
+*.azurePubxml
+*.publishsettings
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Test results
+TestResults/
+*.trx
+*.coverage
+
+# Coverage tools
+coverage/
+*.coveragexml
+
+# Temporary files
+*.tmp
+*.temp
+
+# Backup files
+*.bak
+
+# Environment variables
+.env
+
+# Logs folder
+logs/
+
+# Node (caso use front junto com .NET)
+node_modules/
+
+# Dist/build frontend
+dist/
+build/
