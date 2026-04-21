@@ -59,6 +59,7 @@ public class ComentarioController : ControllerBase
             var comentario = new Comentario
             {
                 UsuarioId = request.UsuarioId,
+                AvaliacaoId = request.AvaliacaoId,
                 Texto = request.Texto
             };
             await _comentarioAplicacao.CriarAsync(comentario);
