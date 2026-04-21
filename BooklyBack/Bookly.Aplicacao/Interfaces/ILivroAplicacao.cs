@@ -9,4 +9,5 @@ public interface ILivroAplicacao
     Task DeletarAsync(Guid id);
     Task<Livro> ObterPorIdAsync(Guid id);
     Task<IEnumerable<Livro>> ListarAsync();
+    Task<IEnumerable<Livro>> BuscarLivrosExternosAsync(string titulo);
 }

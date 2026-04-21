@@ -1,16 +1,19 @@
 using Bookly.Aplicacao.Interfaces;
 using Bookly.Dominio.Entidades;
 using Bookly.Dominio.Interfaces;
+using Bookly.Services.Interfaces;
 
 namespace Bookly.Aplicacao;
 
 public class LivroAplicacao : ILivroAplicacao
 {
     private readonly ILivroRepositorio _livroRepositorio;
+    private readonly IOpenLibraryService _openLibraryService;
 
-    public LivroAplicacao(ILivroRepositorio livroRepositorio)
+    public LivroAplicacao(ILivroRepositorio livroRepositorio, IOpenLibraryService openLibraryService)
     {
         _livroRepositorio = livroRepositorio;
+        _openLibraryService = openLibraryService;
     }
 
     public async Task<int> CriarAsync(Livro livro)
@@ -69,5 +72,13 @@ public class LivroAplicacao : ILivroAplicacao
     public async Task<IEnumerable<Livro>> ListarAsync()
     {
         return await _livroRepositorio.ListarAsync();
+    }
+
+    public async Task<IEnumerable<Livro>> BuscarLivrosExternosAsync(string titulo)
+    {
+        if (string.IsNullOrWhiteSpace(titulo))
+            return Enumerable.Empty<Livro>();
+            
+        return await _openLibraryService.BuscarLivrosPorTituloAsync(titulo);
     }
 }

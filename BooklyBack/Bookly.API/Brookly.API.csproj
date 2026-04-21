@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.14" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Bookly.Dominio\Bookly.Dominio.csproj" />
+    <ProjectReference Include="..\Bookly.Aplicacao\Bookly.Aplicacao.csproj" />
+    <ProjectReference Include="..\Bookly.Repositorio\Bookly.Repositorio.csproj" />
+    <ProjectReference Include="..\Bookly.Services\Bookly.Services.csproj" />
+  </ItemGroup>
+
+</Project>
