@@ -39,14 +39,26 @@ public class OpenLibraryService : IOpenLibraryService
         var livros = new List<Livro>();
         foreach (var doc in searchResult.Docs)
         {
+            var isbn = doc.Isbn != null && doc.Isbn.Any() ? doc.Isbn.First() : string.Empty;
+            // ISBN no banco é NVARCHAR(20) — truncar caso venha maior da API externa
+            if (isbn.Length > 20) isbn = isbn.Substring(0, 20);
+
+            var autor = doc.AuthorName != null && doc.AuthorName.Any()
+                ? string.Join(", ", doc.AuthorName).Substring(0, Math.Min(string.Join(", ", doc.AuthorName).Length, 200))
+                : "Desconhecido";
+
+            var genero = doc.Subject != null && doc.Subject.Any()
+                ? doc.Subject.First().Substring(0, Math.Min(doc.Subject.First().Length, 100))
+                : string.Empty;
+
             livros.Add(new Livro
             {
-                Id = Guid.NewGuid(), // ID temporário para identificação no front-end
-                Titulo = doc.Title,
-                Autor = doc.AuthorName != null && doc.AuthorName.Any() ? string.Join(", ", doc.AuthorName) : "Desconhecido",
+                Id = Guid.NewGuid(),
+                Titulo = doc.Title?.Substring(0, Math.Min(doc.Title.Length, 300)) ?? "Sem título",
+                Autor = autor,
                 AnoPublicacao = doc.FirstPublishYear ?? 0,
-                ISBN = doc.Isbn != null && doc.Isbn.Any() ? doc.Isbn.First() : string.Empty,
-                Genero = doc.Subject != null && doc.Subject.Any() ? doc.Subject.First() : string.Empty,
+                ISBN = isbn,
+                Genero = genero,
                 DataCriacao = DateTime.UtcNow
             });
         }

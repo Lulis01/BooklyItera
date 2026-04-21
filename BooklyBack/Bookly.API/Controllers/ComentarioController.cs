@@ -16,7 +16,7 @@ public class ComentarioController : ControllerBase
         _comentarioAplicacao = comentarioAplicacao;
     }
 
-    [HttpGet]
+    [HttpGet("Listar")]
     public async Task<IActionResult> Listar()
     {
         var comentarios = await _comentarioAplicacao.ListarAsync();
@@ -30,7 +30,7 @@ public class ComentarioController : ControllerBase
         return Ok(response);
     }
 
-    [HttpGet("{id:guid}")]
+    [HttpGet("Obter/{id:guid}")]
     public async Task<IActionResult> ObterPorId(Guid id)
     {
         try
@@ -51,7 +51,7 @@ public class ComentarioController : ControllerBase
         }
     }
 
-    [HttpPost]
+    [HttpPost("Criar")]
     public async Task<IActionResult> Criar([FromBody] CriarComentarioRequest request)
     {
         try
@@ -61,8 +61,8 @@ public class ComentarioController : ControllerBase
                 UsuarioId = request.UsuarioId,
                 Texto = request.Texto
             };
-            var id = await _comentarioAplicacao.CriarAsync(comentario);
-            return CreatedAtAction(nameof(ObterPorId), new { id }, new { id });
+            await _comentarioAplicacao.CriarAsync(comentario);
+            return CreatedAtAction(nameof(ObterPorId), new { id = comentario.Id }, new { id = comentario.Id });
         }
         catch (Exception ex)
         {
@@ -70,7 +70,7 @@ public class ComentarioController : ControllerBase
         }
     }
 
-    [HttpPut("{id:guid}")]
+    [HttpPut("Atualizar/{id:guid}")]
     public async Task<IActionResult> Atualizar(Guid id, [FromBody] AtualizarComentarioRequest request)
     {
         try
@@ -89,7 +89,7 @@ public class ComentarioController : ControllerBase
         }
     }
 
-    [HttpDelete("{id:guid}")]
+    [HttpDelete("Deletar/{id:guid}")]
     public async Task<IActionResult> Deletar(Guid id)
     {
         try

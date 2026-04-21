@@ -27,8 +27,9 @@ public class LivroAplicacao : ILivroAplicacao
         if (string.IsNullOrEmpty(livro.Autor))
             throw new Exception("Autor não pode ser vazio");
 
-        if (string.IsNullOrEmpty(livro.ISBN))
-            throw new Exception("ISBN não pode ser vazio");
+
+        if (livro.ISBN == null)
+            livro.ISBN = string.Empty;
 
         return await _livroRepositorio.CriarAsync(livro);
     }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyBack\\Bookly.Dominio\\Bookly.Dominio.csproj": {}
+    "C:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Dominio\\Bookly.Dominio.csproj": {}
   },
   "projects": {
-    "C:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyBack\\Bookly.Dominio\\Bookly.Dominio.csproj": {
+    "C:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Dominio\\Bookly.Dominio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyBack\\Bookly.Dominio\\Bookly.Dominio.csproj",
+        "projectUniqueName": "C:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Dominio\\Bookly.Dominio.csproj",
         "projectName": "Bookly.Dominio",
-        "projectPath": "C:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyBack\\Bookly.Dominio\\Bookly.Dominio.csproj",
+        "projectPath": "C:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Dominio\\Bookly.Dominio.csproj",
         "packagesPath": "C:\\Users\\luizp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyBack\\Bookly.Dominio\\obj\\",
+        "outputPath": "C:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Dominio\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\luizp\\AppData\\Roaming\\NuGet\\NuGet.Config"

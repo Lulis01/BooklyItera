@@ -1,6 +1,7 @@
 using Bookly.API.Models.Livro;
 using Bookly.Aplicacao.Interfaces;
 using Bookly.Dominio.Entidades;
+using Bookly.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Bookly.API.Controllers;
@@ -10,13 +11,15 @@ namespace Bookly.API.Controllers;
 public class LivroController : ControllerBase
 {
     private readonly ILivroAplicacao _livroAplicacao;
+    private readonly IOpenLibraryService _openLibraryService;
 
-    public LivroController(ILivroAplicacao livroAplicacao)
+    public LivroController(ILivroAplicacao livroAplicacao, IOpenLibraryService openLibraryService)
     {
         _livroAplicacao = livroAplicacao;
+        _openLibraryService = openLibraryService;
     }
 
-    [HttpGet]
+    [HttpGet("Listar")]
     public async Task<IActionResult> Listar()
     {
         var livros = await _livroAplicacao.ListarAsync();
@@ -33,7 +36,7 @@ public class LivroController : ControllerBase
         return Ok(response);
     }
 
-    [HttpGet("{id:guid}")]
+    [HttpGet("Obter/{id:guid}")]
     public async Task<IActionResult> ObterPorId(Guid id)
     {
         try
@@ -57,7 +60,7 @@ public class LivroController : ControllerBase
         }
     }
 
-    [HttpGet("buscar")]
+    [HttpGet("Buscar")]
     public async Task<IActionResult> BuscarExternos([FromQuery] string titulo)
     {
         if (string.IsNullOrWhiteSpace(titulo))
@@ -77,7 +80,52 @@ public class LivroController : ControllerBase
         return Ok(response);
     }
 
-    [HttpPost]
+    [HttpPost("Importar")]
+    public async Task<IActionResult> ImportarDaApiExterna([FromQuery] string titulo)
+    {
+        if (string.IsNullOrWhiteSpace(titulo))
+            return BadRequest(new { mensagem = "Informe um título para buscar na API externa." });
+
+        try
+        {
+            var livrosExternos = await _openLibraryService.BuscarLivrosPorTituloAsync(titulo);
+
+            if (!livrosExternos.Any())
+                return NotFound(new { mensagem = "Nenhum livro encontrado na API externa com esse título." });
+
+            var importados = new List<object>();
+            var erros = new List<string>();
+
+            foreach (var livro in livrosExternos)
+            {
+                try
+                {
+                    // Garante um Id novo local independente do temporário da API
+                    livro.Id = Guid.Empty;
+                    await _livroAplicacao.CriarAsync(livro);
+                    importados.Add(new { livro.Id, livro.Titulo, livro.Autor });
+                }
+                catch (Exception ex)
+                {
+                    // ISBN duplicado ou outro erro — pula para o próximo
+                    erros.Add($"{livro.Titulo}: {ex.Message}");
+                }
+            }
+
+            return Ok(new
+            {
+                mensagem = $"{importados.Count} livro(s) importado(s) com sucesso.",
+                importados,
+                erros
+            });
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(new { mensagem = ex.Message });
+        }
+    }
+
+    [HttpPost("Criar")]
     public async Task<IActionResult> Criar([FromBody] CriarLivroRequest request)
     {
         try
@@ -90,8 +138,8 @@ public class LivroController : ControllerBase
                 AnoPublicacao = request.AnoPublicacao,
                 Genero = request.Genero
             };
-            var id = await _livroAplicacao.CriarAsync(livro);
-            return CreatedAtAction(nameof(ObterPorId), new { id }, new { id });
+            await _livroAplicacao.CriarAsync(livro);
+            return CreatedAtAction(nameof(ObterPorId), new { id = livro.Id }, new { id = livro.Id });
         }
         catch (Exception ex)
         {
@@ -99,7 +147,7 @@ public class LivroController : ControllerBase
         }
     }
 
-    [HttpPut("{id:guid}")]
+    [HttpPut("Atualizar/{id:guid}")]
     public async Task<IActionResult> Atualizar(Guid id, [FromBody] AtualizarLivroRequest request)
     {
         try
@@ -122,7 +170,7 @@ public class LivroController : ControllerBase
         }
     }
 
-    [HttpDelete("{id:guid}")]
+    [HttpDelete("Deletar/{id:guid}")]
     public async Task<IActionResult> Deletar(Guid id)
     {
         try

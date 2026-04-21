@@ -5,8 +5,20 @@ namespace Bookly.Repositorio;
 
 public class BooklyDbContext : DbContext
 {
+    public BooklyDbContext()
+    {
+    }
+
     public BooklyDbContext(DbContextOptions<BooklyDbContext> options) : base(options)
     {
+    }
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        if (!optionsBuilder.IsConfigured)
+        {
+            optionsBuilder.UseSqlServer("Server=Lulis;Database=BooklyDb;Trusted_Connection=True;TrustServerCertificate=True;");
+        }
     }
 
     public DbSet<Usuario> Usuarios { get; set; }

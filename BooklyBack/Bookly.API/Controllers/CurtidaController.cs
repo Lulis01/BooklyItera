@@ -16,7 +16,7 @@ public class CurtidaController : ControllerBase
         _curtidaAplicacao = curtidaAplicacao;
     }
 
-    [HttpGet]
+    [HttpGet("Listar")]
     public async Task<IActionResult> Listar()
     {
         var curtidas = await _curtidaAplicacao.ListarAsync();
@@ -30,7 +30,7 @@ public class CurtidaController : ControllerBase
         return Ok(response);
     }
 
-    [HttpGet("{id:guid}")]
+    [HttpGet("Obter/{id:guid}")]
     public async Task<IActionResult> ObterPorId(Guid id)
     {
         try
@@ -51,7 +51,7 @@ public class CurtidaController : ControllerBase
         }
     }
 
-    [HttpPost]
+    [HttpPost("Criar")]
     public async Task<IActionResult> Criar([FromBody] CriarCurtidaRequest request)
     {
         try
@@ -61,8 +61,8 @@ public class CurtidaController : ControllerBase
                 UsuarioId = request.UsuarioId,
                 AvaliacaoId = request.AvaliacaoId
             };
-            var id = await _curtidaAplicacao.CriarAsync(curtida);
-            return CreatedAtAction(nameof(ObterPorId), new { id }, new { id });
+            await _curtidaAplicacao.CriarAsync(curtida);
+            return CreatedAtAction(nameof(ObterPorId), new { id = curtida.Id }, new { id = curtida.Id });
         }
         catch (Exception ex)
         {
@@ -70,7 +70,7 @@ public class CurtidaController : ControllerBase
         }
     }
 
-    [HttpDelete("{id:guid}")]
+    [HttpDelete("Deletar/{id:guid}")]
     public async Task<IActionResult> Deletar(Guid id)
     {
         try

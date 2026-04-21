@@ -16,7 +16,7 @@ public class AvaliacaoController : ControllerBase
         _avaliacaoAplicacao = avaliacaoAplicacao;
     }
 
-    [HttpGet]
+    [HttpGet("Listar")]
     public async Task<IActionResult> Listar()
     {
         var avaliacoes = await _avaliacaoAplicacao.ListarAsync();
@@ -32,7 +32,7 @@ public class AvaliacaoController : ControllerBase
         return Ok(response);
     }
 
-    [HttpGet("{id:guid}")]
+    [HttpGet("Obter/{id:guid}")]
     public async Task<IActionResult> ObterPorId(Guid id)
     {
         try
@@ -55,7 +55,7 @@ public class AvaliacaoController : ControllerBase
         }
     }
 
-    [HttpPost]
+    [HttpPost("Criar")]
     public async Task<IActionResult> Criar([FromBody] CriarAvaliacaoRequest request)
     {
         try
@@ -67,8 +67,8 @@ public class AvaliacaoController : ControllerBase
                 Texto = request.Texto,
                 Nota = request.Nota
             };
-            var id = await _avaliacaoAplicacao.CriarAsync(avaliacao);
-            return CreatedAtAction(nameof(ObterPorId), new { id }, new { id });
+            await _avaliacaoAplicacao.CriarAsync(avaliacao);
+            return CreatedAtAction(nameof(ObterPorId), new { id = avaliacao.Id }, new { id = avaliacao.Id });
         }
         catch (Exception ex)
         {
@@ -76,7 +76,7 @@ public class AvaliacaoController : ControllerBase
         }
     }
 
-    [HttpPut("{id:guid}")]
+    [HttpPut("Atualizar/{id:guid}")]
     public async Task<IActionResult> Atualizar(Guid id, [FromBody] AtualizarAvaliacaoRequest request)
     {
         try
@@ -96,7 +96,7 @@ public class AvaliacaoController : ControllerBase
         }
     }
 
-    [HttpDelete("{id:guid}")]
+    [HttpDelete("Deletar/{id:guid}")]
     public async Task<IActionResult> Deletar(Guid id)
     {
         try

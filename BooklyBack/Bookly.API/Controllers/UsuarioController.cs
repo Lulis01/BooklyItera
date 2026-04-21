@@ -16,7 +16,7 @@ public class UsuarioController : ControllerBase
         _usuarioAplicacao = usuarioAplicacao;
     }
 
-    [HttpGet]
+    [HttpGet("Listar")]
     public async Task<IActionResult> Listar()
     {
         var usuarios = await _usuarioAplicacao.ListarAsync();
@@ -30,7 +30,7 @@ public class UsuarioController : ControllerBase
         return Ok(response);
     }
 
-    [HttpGet("{id:guid}")]
+    [HttpGet("Obter/{id:guid}")]
     public async Task<IActionResult> ObterPorId(Guid id)
     {
         try
@@ -51,7 +51,7 @@ public class UsuarioController : ControllerBase
         }
     }
 
-    [HttpPost]
+    [HttpPost("Criar")]
     public async Task<IActionResult> Criar([FromBody] CriarUsuarioRequest request)
     {
         try
@@ -62,8 +62,8 @@ public class UsuarioController : ControllerBase
                 Email = request.Email,
                 SenhaHash = request.SenhaHash
             };
-            var id = await _usuarioAplicacao.CriarAsync(usuario);
-            return CreatedAtAction(nameof(ObterPorId), new { id }, new { id });
+            await _usuarioAplicacao.CriarAsync(usuario);
+            return CreatedAtAction(nameof(ObterPorId), new { id = usuario.Id }, new { id = usuario.Id });
         }
         catch (Exception ex)
         {
@@ -71,7 +71,7 @@ public class UsuarioController : ControllerBase
         }
     }
 
-    [HttpPut("{id:guid}")]
+    [HttpPut("Atualizar/{id:guid}")]
     public async Task<IActionResult> Atualizar(Guid id, [FromBody] AtualizarUsuarioRequest request)
     {
         try
@@ -91,7 +91,7 @@ public class UsuarioController : ControllerBase
         }
     }
 
-    [HttpDelete("{id:guid}")]
+    [HttpDelete("Deletar/{id:guid}")]
     public async Task<IActionResult> Deletar(Guid id)
     {
         try
