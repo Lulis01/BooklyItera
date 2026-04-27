@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "E1JT72/2vmw=",
+  "dgSpecHash": "c+Gcz1ptIKI=",
   "success": true,
-  "projectFilePath": "C:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Repositorio\\Bookly.Repositorio.csproj",
+  "projectFilePath": "c:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Repositorio\\Bookly.Repositorio.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\luizp\\.nuget\\packages\\dapper\\2.1.72\\dapper.2.1.72.nupkg.sha512",
     "C:\\Users\\luizp\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

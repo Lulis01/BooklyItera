@@ -8,5 +8,6 @@ public interface IUsuarioAplicacao
     Task AtualizarAsync(Usuario usuario);
     Task DeletarAsync(Guid id);
     Task<Usuario> ObterPorIdAsync(Guid id);
+    Task<Usuario> ObterPorEmailAsync(string email);
     Task<IEnumerable<Usuario>> ListarAsync();
 }

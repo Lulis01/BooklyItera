@@ -4497,11 +4497,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Repositorio\\Bookly.Repositorio.csproj",
+      "projectUniqueName": "c:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Repositorio\\Bookly.Repositorio.csproj",
       "projectName": "Bookly.Repositorio",
-      "projectPath": "C:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Repositorio\\Bookly.Repositorio.csproj",
+      "projectPath": "c:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Repositorio\\Bookly.Repositorio.csproj",
       "packagesPath": "C:\\Users\\luizp\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Repositorio\\obj\\",
+      "outputPath": "c:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Repositorio\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\luizp\\AppData\\Roaming\\NuGet\\NuGet.Config"

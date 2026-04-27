@@ -7,6 +7,7 @@ public interface IUsuarioRepositorio
     Task<int> CriarAsync(Usuario usuario);
     Task AtualizarAsync(Usuario usuario);
     Task DeletarAsync(Guid id);
-    Task<Usuario> ObterPorIdAsync(Guid id);
+    Task<Usuario?> ObterPorIdAsync(Guid id);
+    Task<Usuario?> ObterPorEmailAsync(string email);
     Task<IEnumerable<Usuario>> ListarAsync();
 }

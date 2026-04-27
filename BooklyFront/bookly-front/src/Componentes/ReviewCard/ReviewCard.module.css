@@ -1,0 +1,230 @@
+.card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid rgba(65, 184, 110, 0.1);
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.avatar {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, #41b86e 0%, #a8e6cf 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    margin-right: 12px;
+    box-shadow: 0 2px 8px rgba(65, 184, 110, 0.3);
+}
+
+.userInfo {
+    flex: 1;
+}
+
+.userName {
+    margin: 0;
+    color: #333;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.date {
+    font-size: 12px;
+    color: #888;
+}
+
+.rating {
+    color: #f1c40f;
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+
+.bookInfo {
+    background: #f8fcf9;
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    border-left: 4px solid #41b86e;
+}
+
+.bookLabel {
+    font-size: 12px;
+    color: #41b86e;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.bookTitle {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.bookAuthor {
+    color: #7f8c8d;
+    font-size: 14px;
+}
+
+.content {
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    font-size: 15px;
+}
+
+.footer {
+    border-top: 1px solid #eee;
+    padding-top: 16px;
+}
+
+.interaction {
+    display: flex;
+    gap: 20px;
+}
+
+.interactionBtn {
+    background: none;
+    border: none;
+    color: #666;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    transition: color 0.2s;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.interactionBtn:hover {
+    color: #ff4d4d;
+    background: rgba(255, 77, 77, 0.05);
+}
+
+.icon {
+    font-size: 16px;
+}
+
+.commentsList {
+    margin-top: 16px;
+    background: #fcfcfc;
+    border-radius: 8px;
+    padding: 12px;
+}
+
+.commentItem {
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 14px;
+}
+
+.commentItem:last-child {
+    border-bottom: none;
+}
+
+.commentUser {
+    font-weight: 600;
+    color: #41b86e;
+    margin-right: 8px;
+}
+
+.commentText {
+    color: #555;
+}
+
+.commentsSection {
+    margin-top: 16px;
+}
+
+.commentForm {
+    display: flex;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+.commentInput {
+    flex: 1;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    padding: 8px 16px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.commentInput:focus {
+    border-color: #41b86e;
+}
+
+.commentSubmitBtn {
+    background: #41b86e;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.commentSubmitBtn:hover:not(:disabled) {
+    background: #36a35f;
+}
+
+.commentSubmitBtn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.toggleCommentsBtn {
+    background: none;
+    border: none;
+    color: #41b86e;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 8px 0;
+    cursor: pointer;
+    text-align: left;
+    width: 100%;
+}
+
+.toggleCommentsBtn:hover {
+    text-decoration: underline;
+}
+
+.liked {
+    color: #ff4d4d !important;
+}
+
+.liked .icon {
+    transform: scale(1.2);
+    display: inline-block;
+    transition: transform 0.2s;
+}
+
+.loginToComment {
+    font-size: 13px;
+    color: #888;
+    font-style: italic;
+    margin-top: 10px;
+    text-align: center;
+}

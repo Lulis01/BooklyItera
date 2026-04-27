@@ -66,6 +66,15 @@ public class UsuarioAplicacao : IUsuarioAplicacao
         return usuario;
     }
 
+    public async Task<Usuario> ObterPorEmailAsync(string email)
+    {
+        var usuario = await _usuarioRepositorio.ObterPorEmailAsync(email);
+        if (usuario == null)
+            throw new Exception("Email não encontrado");
+
+        return usuario;
+    }
+
     public async Task<IEnumerable<Usuario>> ListarAsync()
     {
         return await _usuarioRepositorio.ListarAsync();

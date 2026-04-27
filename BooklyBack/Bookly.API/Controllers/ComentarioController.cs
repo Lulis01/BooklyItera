@@ -24,6 +24,7 @@ public class ComentarioController : ControllerBase
         {
             Id = c.Id,
             UsuarioId = c.UsuarioId,
+            AvaliacaoId = c.AvaliacaoId,
             Texto = c.Texto,
             DataCriacao = c.DataCriacao
         });
@@ -40,6 +41,7 @@ public class ComentarioController : ControllerBase
             {
                 Id = comentario.Id,
                 UsuarioId = comentario.UsuarioId,
+                AvaliacaoId = comentario.AvaliacaoId,
                 Texto = comentario.Texto,
                 DataCriacao = comentario.DataCriacao
             };
@@ -63,7 +65,15 @@ public class ComentarioController : ControllerBase
                 Texto = request.Texto
             };
             await _comentarioAplicacao.CriarAsync(comentario);
-            return CreatedAtAction(nameof(ObterPorId), new { id = comentario.Id }, new { id = comentario.Id });
+            var response = new ComentarioResponse
+            {
+                Id = comentario.Id,
+                UsuarioId = comentario.UsuarioId,
+                AvaliacaoId = comentario.AvaliacaoId,
+                Texto = comentario.Texto,
+                DataCriacao = comentario.DataCriacao
+            };
+            return CreatedAtAction(nameof(ObterPorId), new { id = comentario.Id }, response);
         }
         catch (Exception ex)
         {

@@ -34,6 +34,21 @@ END
 GO
 
 
+-- Obter por Email
+
+CREATE OR ALTER PROCEDURE sp_ObterUsuarioPorEmail
+    @Email NVARCHAR(200)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT Id, Nome, Email, SenhaHash, DataCriacao
+    FROM   Usuarios
+    WHERE  Email = @Email;
+END
+GO
+
+
 -- Listar todos
 
 CREATE OR ALTER PROCEDURE sp_ListarUsuarios

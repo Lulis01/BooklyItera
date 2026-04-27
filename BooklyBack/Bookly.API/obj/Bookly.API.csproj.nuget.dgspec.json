@@ -26,17 +26,17 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "C:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Aplicacao\\Bookly.Aplicacao.csproj": {
-                "projectPath": "C:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Aplicacao\\Bookly.Aplicacao.csproj"
+              "c:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Aplicacao\\Bookly.Aplicacao.csproj": {
+                "projectPath": "c:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Aplicacao\\Bookly.Aplicacao.csproj"
               },
               "C:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Dominio\\Bookly.Dominio.csproj": {
                 "projectPath": "C:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Dominio\\Bookly.Dominio.csproj"
               },
-              "C:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Repositorio\\Bookly.Repositorio.csproj": {
-                "projectPath": "C:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Repositorio\\Bookly.Repositorio.csproj"
+              "c:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Repositorio\\Bookly.Repositorio.csproj": {
+                "projectPath": "c:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Repositorio\\Bookly.Repositorio.csproj"
               },
-              "C:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Services\\Bookly.Services.csproj": {
-                "projectPath": "C:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Services\\Bookly.Services.csproj"
+              "c:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Services\\Bookly.Services.csproj": {
+                "projectPath": "c:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Services\\Bookly.Services.csproj"
               }
             }
           }
@@ -57,6 +57,10 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.1.0, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
@@ -66,6 +70,10 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[10.1.7, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[8.17.0, )"
             }
           },
           "imports": [
@@ -91,14 +99,14 @@
         }
       }
     },
-    "C:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Aplicacao\\Bookly.Aplicacao.csproj": {
+    "c:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Aplicacao\\Bookly.Aplicacao.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Aplicacao\\Bookly.Aplicacao.csproj",
+        "projectUniqueName": "c:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Aplicacao\\Bookly.Aplicacao.csproj",
         "projectName": "Bookly.Aplicacao",
-        "projectPath": "C:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Aplicacao\\Bookly.Aplicacao.csproj",
+        "projectPath": "c:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Aplicacao\\Bookly.Aplicacao.csproj",
         "packagesPath": "C:\\Users\\luizp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Aplicacao\\obj\\",
+        "outputPath": "c:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Aplicacao\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\luizp\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -116,11 +124,11 @@
               "C:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Dominio\\Bookly.Dominio.csproj": {
                 "projectPath": "C:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Dominio\\Bookly.Dominio.csproj"
               },
-              "C:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Repositorio\\Bookly.Repositorio.csproj": {
-                "projectPath": "C:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Repositorio\\Bookly.Repositorio.csproj"
+              "c:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Repositorio\\Bookly.Repositorio.csproj": {
+                "projectPath": "c:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Repositorio\\Bookly.Repositorio.csproj"
               },
-              "C:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Services\\Bookly.Services.csproj": {
-                "projectPath": "C:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Services\\Bookly.Services.csproj"
+              "c:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Services\\Bookly.Services.csproj": {
+                "projectPath": "c:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Services\\Bookly.Services.csproj"
               }
             }
           }
@@ -219,14 +227,14 @@
         }
       }
     },
-    "C:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Repositorio\\Bookly.Repositorio.csproj": {
+    "c:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Repositorio\\Bookly.Repositorio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Repositorio\\Bookly.Repositorio.csproj",
+        "projectUniqueName": "c:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Repositorio\\Bookly.Repositorio.csproj",
         "projectName": "Bookly.Repositorio",
-        "projectPath": "C:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Repositorio\\Bookly.Repositorio.csproj",
+        "projectPath": "c:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Repositorio\\Bookly.Repositorio.csproj",
         "packagesPath": "C:\\Users\\luizp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Repositorio\\obj\\",
+        "outputPath": "c:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Repositorio\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\luizp\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -324,14 +332,14 @@
         }
       }
     },
-    "C:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Services\\Bookly.Services.csproj": {
+    "c:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Services\\Bookly.Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Services\\Bookly.Services.csproj",
+        "projectUniqueName": "c:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Services\\Bookly.Services.csproj",
         "projectName": "Bookly.Services",
-        "projectPath": "C:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Services\\Bookly.Services.csproj",
+        "projectPath": "c:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Services\\Bookly.Services.csproj",
         "packagesPath": "C:\\Users\\luizp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Services\\obj\\",
+        "outputPath": "c:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Services\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\luizp\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -367,6 +375,16 @@
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
+          "dependencies": {
+            "Microsoft.Extensions.Configuration.Abstractions": {
+              "target": "Package",
+              "version": "[10.0.7, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[8.17.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

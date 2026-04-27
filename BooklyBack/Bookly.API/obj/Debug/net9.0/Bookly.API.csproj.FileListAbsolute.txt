@@ -201,3 +201,4 @@ C:\Users\luizp\OneDrive\Área de Trabalho\Bookly\BooklyItera\BooklyBack\Bookly.A
 C:\Users\luizp\OneDrive\Área de Trabalho\Bookly\BooklyItera\BooklyBack\Bookly.API\bin\Debug\net9.0\runtimes\linux-ppc64le\native\libe_sqlite3.so
 C:\Users\luizp\OneDrive\Área de Trabalho\Bookly\BooklyItera\BooklyBack\Bookly.API\bin\Debug\net9.0\runtimes\maccatalyst-arm64\native\libe_sqlite3.dylib
 C:\Users\luizp\OneDrive\Área de Trabalho\Bookly\BooklyItera\BooklyBack\Bookly.API\bin\Debug\net9.0\runtimes\maccatalyst-x64\native\libe_sqlite3.dylib
+c:\Users\luizp\OneDrive\Área de Trabalho\Bookly\BooklyItera\BooklyBack\Bookly.API\bin\Debug\net9.0\BCrypt.Net-Next.dll

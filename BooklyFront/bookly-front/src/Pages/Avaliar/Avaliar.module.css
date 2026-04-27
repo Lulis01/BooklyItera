@@ -1,0 +1,148 @@
+.pagina_conteudo {
+    padding: 30px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.titulo {
+    color: #2fa369;
+    margin-bottom: 5px;
+}
+
+.subtitulo {
+    color: #666;
+    margin-bottom: 25px;
+}
+
+/* BUSCA */
+.busca_container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.input_busca {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.botao_busca {
+    padding: 10px 20px;
+    background: #2fa369;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+.lista_livros {
+    margin-top: 20px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    overflow: hidden;
+    background: white;
+}
+
+.lista_header {
+    background: #f8f9fa;
+    padding: 10px;
+    font-size: 14px;
+    border-bottom: 1px solid #eee;
+}
+
+.livro_item {
+    padding: 15px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+}
+
+.livro_item:hover {
+    background: #f1fdf6;
+}
+
+.autor_texto {
+    color: #666;
+    font-size: 13px;
+}
+
+.form_container {
+    margin-top: 30px;
+    padding: 25px;
+    background: #fff;
+    border: 2px solid #2fa369;
+    border-radius: 12px;
+}
+
+.info_livro {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.btn_mudar {
+    background: none;
+    border: none;
+    color: red;
+    text-decoration: underline;
+    cursor: pointer;
+    padding: 0;
+}
+
+.form_main {
+    margin-top: 25px;
+}
+
+.campo {
+    margin-bottom: 15px;
+}
+
+.label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.input_nota {
+    display: none;
+}
+
+.estrelas_container {
+    font-size: 30px;
+    cursor: pointer;
+    display: flex;
+    gap: 5px;
+}
+
+.estrela_ativa {
+    color: #f1c40f; /* Amarelo */
+}
+
+.estrela_inativa {
+    color: #ddd; /* Cinza */
+}
+
+.textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.botao_postar {
+    width: 100%;
+    padding: 12px;
+    background: #2fa369;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.botao_postar:hover {
+    background: #248a56;
+}
