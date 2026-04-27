@@ -1,0 +1,22 @@
+.topbar_item {
+    text-decoration: none;
+
+    display: flex;
+    margin: 20px;
+    color: #939393;
+
+    & svg {
+        width: 30px;
+        height: 44px;
+    }
+
+    & .texto_link {
+        margin: 10px;
+
+        font-size: 20px;
+    }
+
+    &:hover {
+        color: #047c62;
+    }
+}
