@@ -2,61 +2,61 @@ import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import style from "./Cadastro.module.css";
+import estilo from "./Cadastro.module.css";
 import UsuarioAPI from "../../Services/usuarioAPI";
 import logo from "../../Assets/LogoLogin.png";
 
 export function Cadastro() {
-    const navigate = useNavigate();
-    const [nome, setNome] = useState("");
-    const [email, setEmail] = useState("");
-    const [senha, setSenha] = useState("");
-    const [confirmarSenha, setConfirmarSenha] = useState("");
-    const [erro, setErro] = useState("");
-    const [carregando, setCarregando] = useState(false);
+    const navegar = useNavigate();
+    const [nomeDigitado, setNomeDigitado] = useState("");
+    const [emailDigitado, setEmailDigitado] = useState("");
+    const [senhaDigitada, setSenhaDigitada] = useState("");
+    const [confirmacaoSenha, setConfirmacaoSenha] = useState("");
+    const [mensagemErro, setMensagemErro] = useState("");
+    const [estaCarregando, setEstaCarregando] = useState(false);
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        setErro("");
+    const aoEnviar = async (evento) => {
+        evento.preventDefault();
+        setMensagemErro("");
 
-        if (senha !== confirmarSenha) {
-            setErro("As senhas não coincidem.");
+        if (senhaDigitada !== confirmacaoSenha) {
+            setMensagemErro("As senhas não são iguais!");
             return;
         }
 
-        setCarregando(true);
+        setEstaCarregando(true);
 
         try {
             await UsuarioAPI.criarAsync({
-                Nome: nome,
-                Email: email,
-                SenhaHash: senha // O backend faz o hash lá, mas o campo se chama SenhaHash no DTO
+                Nome: nomeDigitado,
+                Email: emailDigitado,
+                SenhaHash: senhaDigitada 
             });
-            alert("Conta criada com sucesso! Faça login para continuar.");
-            navigate("/login");
-        } catch (error) {
-            setErro(error.response?.data?.mensagem || "Erro ao criar conta. Verifique os dados e tente novamente.");
+            alert("Sua conta foi criada! Agora é só fazer o login.");
+            navegar("/login");
+        } catch (erro) {
+            setMensagemErro(erro.response?.data?.mensagem || "Deu um erro ao criar sua conta. Tente de novo.");
         } finally {
-            setCarregando(false);
+            setEstaCarregando(false);
         }
     };
 
     return (
-        <div className={style.pagina_conteudo}>
-            <img src={logo} alt="Bookly" className={style.logo} />
+        <div className={estilo.pagina_conteudo}>
+            <img src={logo} alt="Bookly" className={estilo.logo} />
 
-            <Form className={style.formulario} onSubmit={handleSubmit}>
+            <Form className={estilo.formulario} onSubmit={aoEnviar}>
                 <h3 className="text-center mb-4">Crie sua conta</h3>
                 
-                {erro && <div className="alert alert-danger">{erro}</div>}
+                {mensagemErro !== "" && <div className="alert alert-danger">{mensagemErro}</div>}
 
                 <Form.Group className="mb-3" controlId="formNome">
                     <Form.Label>Nome Completo</Form.Label>
                     <Form.Control
                         type="text"
-                        placeholder="Seu nome"
-                        value={nome}
-                        onChange={(e) => setNome(e.target.value)}
+                        placeholder="Digite seu nome"
+                        value={nomeDigitado}
+                        onChange={(e) => setNomeDigitado(e.target.value)}
                         required
                     />
                 </Form.Group>
@@ -66,8 +66,8 @@ export function Cadastro() {
                     <Form.Control
                         type="email"
                         placeholder="Ex: joao@email.com"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
+                        value={emailDigitado}
+                        onChange={(e) => setEmailDigitado(e.target.value)}
                         required
                     />
                 </Form.Group>
@@ -76,9 +76,9 @@ export function Cadastro() {
                     <Form.Label>Senha</Form.Label>
                     <Form.Control
                         type="password"
-                        placeholder="Mínimo 6 caracteres"
-                        value={senha}
-                        onChange={(e) => setSenha(e.target.value)}
+                        placeholder="Crie uma senha de 6 letras ou mais"
+                        value={senhaDigitada}
+                        onChange={(e) => setSenhaDigitada(e.target.value)}
                         required
                         minLength={6}
                     />
@@ -88,22 +88,22 @@ export function Cadastro() {
                     <Form.Label>Confirmar Senha</Form.Label>
                     <Form.Control
                         type="password"
-                        placeholder="Repita sua senha"
-                        value={confirmarSenha}
-                        onChange={(e) => setConfirmarSenha(e.target.value)}
+                        placeholder="Repita a senha de cima"
+                        value={confirmacaoSenha}
+                        onChange={(e) => setConfirmacaoSenha(e.target.value)}
                         required
                     />
                 </Form.Group>
 
                 <Button 
                     type="submit" 
-                    className={style.botao}
-                    disabled={carregando}
+                    className={estilo.botao}
+                    disabled={estaCarregando}
                 >
-                    {carregando ? "Criando conta..." : "Cadastrar"}
+                    {estaCarregando === true ? "Criando sua conta..." : "Cadastrar Agora"}
                 </Button>
 
-                <div className={style.login_link}>
+                <div className={estilo.login_link}>
                     Já tem uma conta? <Link to="/login">Entrar</Link>
                 </div>
             </Form>

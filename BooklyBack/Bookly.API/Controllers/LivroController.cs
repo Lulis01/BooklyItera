@@ -31,7 +31,7 @@ public class LivroController : ControllerBase
             ISBN = l.ISBN,
             AnoPublicacao = l.AnoPublicacao,
             Genero = l.Genero,
-            DataCriacao = l.DataCriacao
+            DataCriacao = l.DataCriacao,
         });
         return Ok(response);
     }
@@ -50,7 +50,7 @@ public class LivroController : ControllerBase
                 ISBN = livro.ISBN,
                 AnoPublicacao = livro.AnoPublicacao,
                 Genero = livro.Genero,
-                DataCriacao = livro.DataCriacao
+                DataCriacao = livro.DataCriacao,
             };
             return Ok(response);
         }
@@ -75,7 +75,7 @@ public class LivroController : ControllerBase
             ISBN = l.ISBN,
             AnoPublicacao = l.AnoPublicacao,
             Genero = l.Genero,
-            DataCriacao = l.DataCriacao
+            DataCriacao = l.DataCriacao,
         });
         return Ok(response);
     }
@@ -91,7 +91,9 @@ public class LivroController : ControllerBase
             var livrosExternos = await _openLibraryService.BuscarLivrosPorTituloAsync(titulo);
 
             if (!livrosExternos.Any())
-                return NotFound(new { mensagem = "Nenhum livro encontrado na API externa com esse título." });
+                return NotFound(
+                    new { mensagem = "Nenhum livro encontrado na API externa com esse título." }
+                );
 
             var importados = new List<object>();
             var erros = new List<string>();
@@ -100,24 +102,24 @@ public class LivroController : ControllerBase
             {
                 try
                 {
-                    // Garante um Id novo local independente do temporário da API
                     livro.Id = Guid.Empty;
                     await _livroAplicacao.CriarAsync(livro);
-                    importados.Add(new { livro.Id, livro.Titulo, livro.Autor });
+                    importados.Add(
+                        new
+                        {
+                            livro.Id,
+                            livro.Titulo,
+                            livro.Autor,
+                        }
+                    );
                 }
                 catch (Exception ex)
                 {
-                    // ISBN duplicado ou outro erro — pula para o próximo
                     erros.Add($"{livro.Titulo}: {ex.Message}");
                 }
             }
 
-            return Ok(new
-            {
-                mensagem = $"{importados.Count} livro(s) importado(s) com sucesso.",
-                importados,
-                erros
-            });
+            return Ok(new { importados, erros });
         }
         catch (Exception ex)
         {
@@ -136,10 +138,10 @@ public class LivroController : ControllerBase
                 Autor = request.Autor,
                 ISBN = request.ISBN,
                 AnoPublicacao = request.AnoPublicacao,
-                Genero = request.Genero
+                Genero = request.Genero,
             };
             await _livroAplicacao.CriarAsync(livro);
-            return CreatedAtAction(nameof(ObterPorId), new { id = livro.Id }, new { id = livro.Id });
+            return Ok(new { id = livro.Id });
         }
         catch (Exception ex)
         {
@@ -159,7 +161,7 @@ public class LivroController : ControllerBase
                 Autor = request.Autor,
                 ISBN = request.ISBN,
                 AnoPublicacao = request.AnoPublicacao,
-                Genero = request.Genero
+                Genero = request.Genero,
             };
             await _livroAplicacao.AtualizarAsync(livro);
             return NoContent();

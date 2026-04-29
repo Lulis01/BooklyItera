@@ -44,6 +44,8 @@ builder.Services.AddScoped<ICurtidaAplicacao, CurtidaAplicacao>();
 
 // Servicos externos
 builder.Services.AddHttpClient<IOpenLibraryService, OpenLibraryService>();
+builder.Services.AddHttpClient<IGroqService, GroqService>();
+builder.Services.AddScoped<IRecomendacaoAplicacao, RecomendacaoAplicacao>();
 builder.Services.AddScoped<ITokenService, TokenService>();
 
 var app = builder.Build();

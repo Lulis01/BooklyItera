@@ -1,0 +1,88 @@
+.pagina_container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+.cabecalho {
+    margin-bottom: 30px;
+    border-bottom: 2px solid #3a804b;
+    padding-bottom: 10px;
+}
+
+.cabecalho h2 {
+    color: #1a1a2e;
+    margin-bottom: 5px;
+}
+
+.cabecalho p {
+    color: #666;
+}
+
+.aviso {
+    text-align: center;
+    padding: 40px;
+    font-size: 1.2rem;
+    color: #3a804b;
+}
+
+.lista_notas {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.card_nota {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    border-left: 5px solid #3a804b;
+    transition: transform 0.2s;
+}
+
+.card_nota:hover {
+    transform: translateY(-3px);
+}
+
+.info_livro h3 {
+    margin: 0;
+    font-size: 1.3rem;
+    color: #1a1a2e;
+}
+
+.info_livro span {
+    color: #3a804b;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.corpo_nota {
+    margin-top: 15px;
+}
+
+.estrelas {
+    color: #ffc107;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.comentario {
+    font-style: italic;
+    color: #444;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+.data {
+    color: #999;
+    font-size: 0.8rem;
+}
+
+.vazio {
+    text-align: center;
+    background: #f9f9f9;
+    padding: 50px;
+    border-radius: 12px;
+    color: #777;
+}

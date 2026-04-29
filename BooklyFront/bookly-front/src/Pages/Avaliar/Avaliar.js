@@ -1,127 +1,126 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { TopBar } from '../../Componentes/TopBar/TopBar';
-import style from './Avaliar.module.css';
+import estilo from './Avaliar.module.css';
 import { useAuth } from '../../Context/AuthContext';
 import LivroAPI from '../../Services/livroAPI';
 import AvaliacaoAPI from '../../Services/avaliacaoAPI';
 
 function Avaliar() {
-    const navigate = useNavigate();
+    const navegar = useNavigate();
     const { user } = useAuth();
     
-    const [busca, setBusca] = useState('');
-    const [livros, setLivros] = useState([]);
-    const [livroSelecionado, setLivroSelecionado] = useState(null);
-    const [nota, setNota] = useState(5);
-    const [texto, setTexto] = useState('');
+    const [termoBusca, setTermoBusca] = useState('');
+    const [listaLivros, setListaLivros] = useState([]);
+    const [livroEscolhido, setLivroEscolhido] = useState(null);
+    const [notaDada, setNotaDada] = useState(5);
+    const [comentario, setComentario] = useState('');
 
-    
-    async function buscarLivros(e) {
-        e.preventDefault();
+    async function procurarLivros(evento) {
+        evento.preventDefault();
         try {
-            const response = await LivroAPI.importarAsync(busca);
-            setLivros(response.importados || []);
-        } catch (error) {
-            alert("Erro ao buscar livros.");
+            const resposta = await LivroAPI.importarAsync(termoBusca);
+            setListaLivros(resposta.importados || []);
+        } catch (erro) {
+            alert("Ops! Deu erro ao buscar os livros.");
         }
     }
 
-
-    async function salvarAvaliacao(e) {
-        e.preventDefault();
+    async function enviarAvaliacao(evento) {
+        evento.preventDefault();
         try {
             const usuarioId = user?.id || user?.Id;
-            const livroId = livroSelecionado?.id || livroSelecionado?.Id;
+            const livroId = livroEscolhido?.id || livroEscolhido?.Id;
 
             if (!livroId) {
-                alert("Selecione um livro primeiro!");
+                alert("Por favor, selecione um livro primeiro!");
                 return;
             }
 
-            await AvaliacaoAPI.criarAsync(usuarioId, livroId, texto, nota);
+            await AvaliacaoAPI.criarAsync(usuarioId, livroId, comentario, notaDada);
 
-            alert("Boa! Avaliação enviada.");
-            navigate('/home');
-        } catch (error) {
-            console.error(error);
-            alert("Erro ao enviar. Verifique se preencheu tudo.");
+            alert("Boa! Sua avaliação foi enviada com sucesso.");
+            navegar('/home');
+        } catch (erro) {
+            console.error(erro);
+            alert("Erro ao enviar. Verifique se você escreveu o comentário.");
         }
     }
 
     return (
         <TopBar>
-            <div className={style.pagina_conteudo}>
-                <h2 className={style.titulo}>Avaliar Livro</h2>
-                <p className={style.subtitulo}>Busque um livro e deixe sua nota.</p>
+            <div className={estilo.pagina_conteudo}>
+                <h2 className={estilo.titulo}>Avaliar Livro</h2>
+                <p className={estilo.subtitulo}>Busque um livro e deixe sua nota.</p>
 
-                
-                <form onSubmit={buscarLivros} className={style.busca_container}>
+                <form onSubmit={procurarLivros} className={estilo.busca_container}>
                     <input 
                         type="text" 
-                        placeholder="Nome do livro..." 
-                        value={busca} 
-                        onChange={e => setBusca(e.target.value)} 
-                        className={style.input_busca}
+                        placeholder="Digite o nome do livro..." 
+                        value={termoBusca} 
+                        onChange={e => setTermoBusca(e.target.value)} 
+                        className={estilo.input_busca}
                     />
-                    <button type="submit" className={style.botao_busca}>
+                    <button type="submit" className={estilo.botao_busca}>
                         Buscar
                     </button>
                 </form>
 
-                
-                {!livroSelecionado && livros.length > 0 && (
-                    <div className={style.lista_livros}>
-                        <div className={style.lista_header}>
+                {livroEscolhido === null && listaLivros.length > 0 && (
+                    <div className={estilo.lista_livros}>
+                        <div className={estilo.lista_header}>
                             Clique no livro para selecionar:
                         </div>
-                        {livros.map(l => (
+                        {listaLivros.map(livro => (
                             <div 
-                                key={l.id || l.Id} 
-                                onClick={() => setLivroSelecionado(l)} 
-                                className={style.livro_item}
+                                key={livro.id || livro.Id} 
+                                onClick={() => setLivroEscolhido(livro)} 
+                                className={estilo.livro_item}
                             >
-                                <strong>{l.titulo}</strong> <br/>
-                                <small className={style.autor_texto}>{l.autor}</small>
+                                <strong>{livro.titulo}</strong> <br/>
+                                <small className={estilo.autor_texto}>{livro.autor}</small>
                             </div>
                         ))}
                     </div>
                 )}
 
-                
-                {livroSelecionado && (
-                    <div className={style.form_container}>
-                        <p className={style.info_livro}>Avaliar: <strong>{livroSelecionado.titulo}</strong></p>
-                        <button onClick={() => setLivroSelecionado(null)} className={style.btn_mudar}>
+                {livroEscolhido !== null && (
+                    <div className={estilo.form_container}>
+                        <p className={estilo.info_livro}>Avaliar: <strong>{livroEscolhido.titulo}</strong></p>
+                        <button onClick={() => setLivroEscolhido(null)} className={estilo.btn_mudar}>
                             Mudar de livro
                         </button>
                         
-                        <form onSubmit={salvarAvaliacao} className={style.form_main}>
-                            <div className={style.campo}>
-                                <label className={style.label}>Sua nota: </label>
-                                <div className={style.estrelas_container}>
+                        <form onSubmit={enviarAvaliacao} className={estilo.form_main}>
+                            <div className={estilo.campo}>
+                                <label className={estilo.label}>Sua nota: </label>
+                                <div className={estilo.estrelas_container}>
                                     {[1, 2, 3, 4, 5].map(num => (
                                         <span 
                                             key={num} 
-                                            className={num <= nota ? style.estrela_ativa : style.estrela_inativa}
-                                            onClick={() => setNota(num)}
+                                            className={num <= notaDada ? estilo.estrela_ativa : estilo.estrela_inativa}
+                                            onClick={() => setNotaDada(num)}
                                         >
                                             ★
                                         </span>
                                     ))}
                                 </div>
                             </div>
-                            <div className={style.campo}>
-                                <label className={style.label}>Seu comentário: </label>
+                            <div className={estilo.campo}>
+                                <label className={estilo.label}>Seu comentário: </label>
                                 <textarea 
                                     placeholder="O que você achou desta leitura?" 
-                                    value={texto} 
-                                    onChange={e => setTexto(e.target.value)}
-                                    className={style.textarea}
+                                    value={comentario} 
+                                    onChange={e => setComentario(e.target.value)}
+                                    className={estilo.textarea}
+                                    maxLength={500}
                                     required
                                 />
+                                <div className={estilo.contador}>
+                                    {comentario.length} / 500 caracteres
+                                </div>
                             </div>
-                            <button type="submit" className={style.botao_postar}>
+                            <button type="submit" className={estilo.botao_postar}>
                                 Publicar Avaliação
                             </button>
                         </form>

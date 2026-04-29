@@ -146,3 +146,10 @@
 .botao_postar:hover {
     background: #248a56;
 }
+
+.contador {
+    font-size: 12px;
+    color: #888;
+    text-align: right;
+    margin-top: 4px;
+}

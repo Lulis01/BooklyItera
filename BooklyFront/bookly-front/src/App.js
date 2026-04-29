@@ -5,6 +5,9 @@ import Home from './Pages/Home/Home';
 import Login from './Pages/Login/Login';
 import Cadastro from './Pages/Cadastro/Cadastro';
 import Avaliar from './Pages/Avaliar/Avaliar';
+import Recomendacao from './Pages/Recomendacao/Recomendacao';
+import MinhasAvaliacoes from './Pages/MinhasAvaliacoes/MinhasAvaliacoes';
+
 import { AuthProvider, useAuth } from './Context/AuthContext';
 
 const ProtectedRoute = ({ children }) => {
@@ -34,6 +37,16 @@ function App() {
           <Route path="/avaliar" element={
             <ProtectedRoute>
               <Avaliar />
+            </ProtectedRoute>
+          } />
+          <Route path="/recomendacao" element={
+            <ProtectedRoute>
+              <Recomendacao />
+            </ProtectedRoute>
+          } />
+          <Route path="/minhas-avaliacoes" element={
+            <ProtectedRoute>
+              <MinhasAvaliacoes />
             </ProtectedRoute>
           } />
         </Routes>

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6G9TcB/L+6E=",
+  "dgSpecHash": "SBbAS0pHMTE=",
   "success": true,
-  "projectFilePath": "c:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Aplicacao\\Bookly.Aplicacao.csproj",
+  "projectFilePath": "C:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Aplicacao\\Bookly.Aplicacao.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\luizp\\.nuget\\packages\\dapper\\2.1.72\\dapper.2.1.72.nupkg.sha512",
     "C:\\Users\\luizp\\.nuget\\packages\\microsoft.bcl.cryptography\\9.0.13\\microsoft.bcl.cryptography.9.0.13.nupkg.sha512",

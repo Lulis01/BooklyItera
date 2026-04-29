@@ -87,7 +87,9 @@
     color: #444;
     line-height: 1.6;
     margin-bottom: 20px;
-    font-size: 15px;
+    font-size: 18px; /* Aumentado de 15px para 18px */
+    overflow-wrap: anywhere; /* Quebra palavras gigantes */
+    word-break: normal;
 }
 
 .footer {
