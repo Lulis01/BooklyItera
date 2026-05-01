@@ -1,0 +1,12 @@
+C:\Users\luizp\OneDrive\Área de Trabalho\Bookly\BooklyItera\BooklyBack\Bookly.Dominio\bin\Debug\net9.0\Bookly.Dominio.deps.json
+C:\Users\luizp\OneDrive\Área de Trabalho\Bookly\BooklyItera\BooklyBack\Bookly.Dominio\bin\Debug\net9.0\Bookly.Dominio.dll
+C:\Users\luizp\OneDrive\Área de Trabalho\Bookly\BooklyItera\BooklyBack\Bookly.Dominio\bin\Debug\net9.0\Bookly.Dominio.pdb
+C:\Users\luizp\OneDrive\Área de Trabalho\Bookly\BooklyItera\BooklyBack\Bookly.Dominio\obj\Debug\net9.0\Bookly.Dominio.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\luizp\OneDrive\Área de Trabalho\Bookly\BooklyItera\BooklyBack\Bookly.Dominio\obj\Debug\net9.0\Bookly.Dominio.AssemblyInfoInputs.cache
+C:\Users\luizp\OneDrive\Área de Trabalho\Bookly\BooklyItera\BooklyBack\Bookly.Dominio\obj\Debug\net9.0\Bookly.Dominio.AssemblyInfo.cs
+C:\Users\luizp\OneDrive\Área de Trabalho\Bookly\BooklyItera\BooklyBack\Bookly.Dominio\obj\Debug\net9.0\Bookly.Dominio.csproj.CoreCompileInputs.cache
+C:\Users\luizp\OneDrive\Área de Trabalho\Bookly\BooklyItera\BooklyBack\Bookly.Dominio\obj\Debug\net9.0\Bookly.Dominio.sourcelink.json
+C:\Users\luizp\OneDrive\Área de Trabalho\Bookly\BooklyItera\BooklyBack\Bookly.Dominio\obj\Debug\net9.0\Bookly.Dominio.dll
+C:\Users\luizp\OneDrive\Área de Trabalho\Bookly\BooklyItera\BooklyBack\Bookly.Dominio\obj\Debug\net9.0\refint\Bookly.Dominio.dll
+C:\Users\luizp\OneDrive\Área de Trabalho\Bookly\BooklyItera\BooklyBack\Bookly.Dominio\obj\Debug\net9.0\Bookly.Dominio.pdb
+C:\Users\luizp\OneDrive\Área de Trabalho\Bookly\BooklyItera\BooklyBack\Bookly.Dominio\obj\Debug\net9.0\ref\Bookly.Dominio.dll

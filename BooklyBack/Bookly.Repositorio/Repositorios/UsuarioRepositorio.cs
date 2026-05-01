@@ -37,13 +37,23 @@ public class UsuarioRepositorio : IUsuarioRepositorio
             commandType: CommandType.StoredProcedure);
     }
 
-    public async Task<Usuario> ObterPorIdAsync(Guid id)
+    public async Task<Usuario?> ObterPorIdAsync(Guid id)
     {
         using var conexao = CriarConexao();
 
         return await conexao.QueryFirstOrDefaultAsync<Usuario>(
             "sp_ObterUsuarioPorId",
             new { Id = id },
+            commandType: CommandType.StoredProcedure);
+    }
+
+    public async Task<Usuario?> ObterPorEmailAsync(string email)
+    {
+        using var conexao = CriarConexao();
+
+        return await conexao.QueryFirstOrDefaultAsync<Usuario>(
+            "sp_ObterUsuarioPorEmail",
+            new { Email = email },
             commandType: CommandType.StoredProcedure);
     }
 

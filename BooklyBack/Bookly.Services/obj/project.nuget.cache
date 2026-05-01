@@ -1,8 +1,18 @@
 {
   "version": 2,
-  "dgSpecHash": "uJOQ4RoaIgM=",
+  "dgSpecHash": "ZuXcsqEyBBE=",
   "success": true,
-  "projectFilePath": "C:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyBack\\Bookly.Services\\Bookly.Services.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Services\\Bookly.Services.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\luizp\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\10.0.7\\microsoft.extensions.configuration.abstractions.10.0.7.nupkg.sha512",
+    "C:\\Users\\luizp\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\luizp\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.0\\microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\luizp\\.nuget\\packages\\microsoft.extensions.primitives\\10.0.7\\microsoft.extensions.primitives.10.0.7.nupkg.sha512",
+    "C:\\Users\\luizp\\.nuget\\packages\\microsoft.identitymodel.abstractions\\8.17.0\\microsoft.identitymodel.abstractions.8.17.0.nupkg.sha512",
+    "C:\\Users\\luizp\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\8.17.0\\microsoft.identitymodel.jsonwebtokens.8.17.0.nupkg.sha512",
+    "C:\\Users\\luizp\\.nuget\\packages\\microsoft.identitymodel.logging\\8.17.0\\microsoft.identitymodel.logging.8.17.0.nupkg.sha512",
+    "C:\\Users\\luizp\\.nuget\\packages\\microsoft.identitymodel.tokens\\8.17.0\\microsoft.identitymodel.tokens.8.17.0.nupkg.sha512",
+    "C:\\Users\\luizp\\.nuget\\packages\\system.identitymodel.tokens.jwt\\8.17.0\\system.identitymodel.tokens.jwt.8.17.0.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -1,0 +1,58 @@
+.topbar_conteudo {
+    background: linear-gradient(135deg, #41b86e 0%, #a8e6cf 100%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.pagina_conteudo {
+    margin-top: 100px;
+}
+
+.topbar_header {
+    display: flex;
+    align-items: center;
+
+    & a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+    }
+
+    & .logo {
+        height: 100px;
+        width: auto;
+    }
+}
+
+.topbar_corpo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.botao_sair {
+    background: none;
+    border: none;
+    color: #ff4d4d;
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0 15px;
+    cursor: pointer;
+    transition: color 0.3s, transform 0.2s;
+    padding: 0;
+}
+
+.botao_sair:hover {
+    color: #ff1a1a;
+    transform: scale(1.05);
+}

@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v9.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v9.0": {
+      "Bookly.Dominio/1.0.0": {
+        "runtime": {
+          "Bookly.Dominio.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Bookly.Dominio/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -1,0 +1,16 @@
+C:\Users\luizp\OneDrive\Área de Trabalho\Bookly\BooklyItera\BooklyBack\Bookly.Services\bin\Debug\net9.0\Bookly.Services.deps.json
+C:\Users\luizp\OneDrive\Área de Trabalho\Bookly\BooklyItera\BooklyBack\Bookly.Services\bin\Debug\net9.0\Bookly.Services.dll
+C:\Users\luizp\OneDrive\Área de Trabalho\Bookly\BooklyItera\BooklyBack\Bookly.Services\bin\Debug\net9.0\Bookly.Services.pdb
+C:\Users\luizp\OneDrive\Área de Trabalho\Bookly\BooklyItera\BooklyBack\Bookly.Services\bin\Debug\net9.0\Bookly.Dominio.dll
+C:\Users\luizp\OneDrive\Área de Trabalho\Bookly\BooklyItera\BooklyBack\Bookly.Services\bin\Debug\net9.0\Bookly.Dominio.pdb
+C:\Users\luizp\OneDrive\Área de Trabalho\Bookly\BooklyItera\BooklyBack\Bookly.Services\obj\Debug\net9.0\Bookly.Services.csproj.AssemblyReference.cache
+C:\Users\luizp\OneDrive\Área de Trabalho\Bookly\BooklyItera\BooklyBack\Bookly.Services\obj\Debug\net9.0\Bookly.Services.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\luizp\OneDrive\Área de Trabalho\Bookly\BooklyItera\BooklyBack\Bookly.Services\obj\Debug\net9.0\Bookly.Services.AssemblyInfoInputs.cache
+C:\Users\luizp\OneDrive\Área de Trabalho\Bookly\BooklyItera\BooklyBack\Bookly.Services\obj\Debug\net9.0\Bookly.Services.AssemblyInfo.cs
+C:\Users\luizp\OneDrive\Área de Trabalho\Bookly\BooklyItera\BooklyBack\Bookly.Services\obj\Debug\net9.0\Bookly.Services.csproj.CoreCompileInputs.cache
+C:\Users\luizp\OneDrive\Área de Trabalho\Bookly\BooklyItera\BooklyBack\Bookly.Services\obj\Debug\net9.0\Bookly.Services.sourcelink.json
+C:\Users\luizp\OneDrive\Área de Trabalho\Bookly\BooklyItera\BooklyBack\Bookly.Services\obj\Debug\net9.0\Bookly.S.B451A67D.Up2Date
+C:\Users\luizp\OneDrive\Área de Trabalho\Bookly\BooklyItera\BooklyBack\Bookly.Services\obj\Debug\net9.0\Bookly.Services.dll
+C:\Users\luizp\OneDrive\Área de Trabalho\Bookly\BooklyItera\BooklyBack\Bookly.Services\obj\Debug\net9.0\refint\Bookly.Services.dll
+C:\Users\luizp\OneDrive\Área de Trabalho\Bookly\BooklyItera\BooklyBack\Bookly.Services\obj\Debug\net9.0\Bookly.Services.pdb
+C:\Users\luizp\OneDrive\Área de Trabalho\Bookly\BooklyItera\BooklyBack\Bookly.Services\obj\Debug\net9.0\ref\Bookly.Services.dll
