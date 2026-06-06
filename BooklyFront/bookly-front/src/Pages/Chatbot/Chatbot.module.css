@@ -272,7 +272,7 @@
     cursor: not-allowed;
 }
 
-/* ── Responsivo ──────────────────────────────────────────────────────────── */
+
 @media (max-width: 768px) {
     .pagina {
         flex-direction: column;

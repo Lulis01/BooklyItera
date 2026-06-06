@@ -1,10 +1,10 @@
--- ============================================================
--- Stored Procedures para a entidade: Avaliacao
--- ============================================================
 
--- ------------------------------------------------------------
+-- Stored Procedures para a entidade: Avaliacao
+
+
+
 -- Criar
--- ------------------------------------------------------------
+
 CREATE OR ALTER PROCEDURE sp_CriarAvaliacao
     @Id          UNIQUEIDENTIFIER,
     @UsuarioId   UNIQUEIDENTIFIER,
@@ -21,9 +21,9 @@ BEGIN
 END
 GO
 
--- ------------------------------------------------------------
+
 -- Obter por Id
--- ------------------------------------------------------------
+
 CREATE OR ALTER PROCEDURE sp_ObterAvaliacaoPorId
     @Id UNIQUEIDENTIFIER
 AS
@@ -36,9 +36,9 @@ BEGIN
 END
 GO
 
--- ------------------------------------------------------------
+
 -- Listar todas
--- ------------------------------------------------------------
+
 CREATE OR ALTER PROCEDURE sp_ListarAvaliacoes
 AS
 BEGIN
@@ -50,9 +50,9 @@ BEGIN
 END
 GO
 
--- ------------------------------------------------------------
+
 -- Atualizar (apenas Texto e Nota são editáveis)
--- ------------------------------------------------------------
+
 CREATE OR ALTER PROCEDURE sp_AtualizarAvaliacao
     @Id    UNIQUEIDENTIFIER,
     @Texto NVARCHAR(400),
@@ -68,9 +68,9 @@ BEGIN
 END
 GO
 
--- ------------------------------------------------------------
+
 -- Deletar (apaga também Comentarios e Curtidas via CASCADE)
--- ------------------------------------------------------------
+
 CREATE OR ALTER PROCEDURE sp_DeletarAvaliacao
     @Id UNIQUEIDENTIFIER
 AS

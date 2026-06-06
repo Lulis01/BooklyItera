@@ -1,10 +1,10 @@
--- ============================================================
--- Stored Procedures para a entidade: Curtida
--- ============================================================
 
--- ------------------------------------------------------------
+-- Stored Procedures para a entidade: Curtida
+
+
+
 -- Criar
--- ------------------------------------------------------------
+
 CREATE OR ALTER PROCEDURE sp_CriarCurtida
     @Id          UNIQUEIDENTIFIER,
     @UsuarioId   UNIQUEIDENTIFIER,
@@ -19,9 +19,9 @@ BEGIN
 END
 GO
 
--- ------------------------------------------------------------
+
 -- Obter por Id
--- ------------------------------------------------------------
+
 CREATE OR ALTER PROCEDURE sp_ObterCurtidaPorId
     @Id UNIQUEIDENTIFIER
 AS
@@ -34,9 +34,9 @@ BEGIN
 END
 GO
 
--- ------------------------------------------------------------
+
 -- Listar todas
--- ------------------------------------------------------------
+
 CREATE OR ALTER PROCEDURE sp_ListarCurtidas
 AS
 BEGIN
@@ -48,11 +48,11 @@ BEGIN
 END
 GO
 
--- ------------------------------------------------------------
+
 -- Atualizar
 -- NOTA: Curtida é imutável. Esta SP existe apenas por contrato.
 -- Para "atualizar" uma curtida, delete e recrie.
--- ------------------------------------------------------------
+
 CREATE OR ALTER PROCEDURE sp_AtualizarCurtida
     @Id UNIQUEIDENTIFIER
 AS
@@ -63,9 +63,9 @@ BEGIN
 END
 GO
 
--- ------------------------------------------------------------
+
 -- Deletar
--- ------------------------------------------------------------
+
 CREATE OR ALTER PROCEDURE sp_DeletarCurtida
     @Id UNIQUEIDENTIFIER
 AS

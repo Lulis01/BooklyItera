@@ -72,7 +72,6 @@ function Chatbot() {
     <div>
       <TopBar />
       <div className={styles.pagina}>
-        {/* Coluna lateral com sugestões */}
         <aside className={styles.sidebar}>
           <h3 className={styles.sidebar_titulo}>💡 Experimente perguntar</h3>
           <ul className={styles.sugestoes}>

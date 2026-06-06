@@ -1,10 +1,10 @@
--- ============================================================
--- Stored Procedures para a entidade: Comentario
--- ============================================================
 
--- ------------------------------------------------------------
+-- Stored Procedures para a entidade: Comentario
+
+
+
 -- Criar
--- ------------------------------------------------------------
+
 CREATE OR ALTER PROCEDURE sp_CriarComentario
     @Id          UNIQUEIDENTIFIER,
     @UsuarioId   UNIQUEIDENTIFIER,
@@ -20,9 +20,9 @@ BEGIN
 END
 GO
 
--- ------------------------------------------------------------
+
 -- Obter por Id
--- ------------------------------------------------------------
+
 CREATE OR ALTER PROCEDURE sp_ObterComentarioPorId
     @Id UNIQUEIDENTIFIER
 AS
@@ -35,9 +35,9 @@ BEGIN
 END
 GO
 
--- ------------------------------------------------------------
+
 -- Listar todos
--- ------------------------------------------------------------
+
 CREATE OR ALTER PROCEDURE sp_ListarComentarios
 AS
 BEGIN
@@ -49,9 +49,9 @@ BEGIN
 END
 GO
 
--- ------------------------------------------------------------
+
 -- Atualizar (apenas Texto é editável)
--- ------------------------------------------------------------
+
 CREATE OR ALTER PROCEDURE sp_AtualizarComentario
     @Id    UNIQUEIDENTIFIER,
     @Texto NVARCHAR(600)
@@ -65,9 +65,9 @@ BEGIN
 END
 GO
 
--- ------------------------------------------------------------
+
 -- Deletar
--- ------------------------------------------------------------
+
 CREATE OR ALTER PROCEDURE sp_DeletarComentario
     @Id UNIQUEIDENTIFIER
 AS

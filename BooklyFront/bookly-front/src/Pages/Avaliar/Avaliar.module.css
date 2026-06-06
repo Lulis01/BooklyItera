@@ -35,6 +35,16 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background 0.2s, opacity 0.2s;
+}
+
+.botao_busca:hover:not(:disabled) {
+    background: #248a56;
+}
+
+.botao_busca:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
 }
 
 

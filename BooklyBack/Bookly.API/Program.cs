@@ -6,6 +6,7 @@ using Bookly.Services;
 using Bookly.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Configuration.AddUserSecrets<Program>(optional: true);
 
 // Controllers
 builder.Services.AddControllers();

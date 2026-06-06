@@ -15,14 +15,18 @@ function Avaliar() {
     const [livroEscolhido, setLivroEscolhido] = useState(null);
     const [notaDada, setNotaDada] = useState(5);
     const [comentario, setComentario] = useState('');
+    const [buscando, setBuscando] = useState(false);
 
     async function procurarLivros(evento) {
         evento.preventDefault();
+        setBuscando(true);
         try {
             const resposta = await LivroAPI.importarAsync(termoBusca);
             setListaLivros(resposta.importados || []);
         } catch (erro) {
             alert("Ops! Deu erro ao buscar os livros.");
+        } finally {
+            setBuscando(false);
         }
     }
 
@@ -61,8 +65,8 @@ function Avaliar() {
                         onChange={e => setTermoBusca(e.target.value)} 
                         className={estilo.input_busca}
                     />
-                    <button type="submit" className={estilo.botao_busca}>
-                        Buscar
+                    <button type="submit" className={estilo.botao_busca} disabled={buscando}>
+                        {buscando ? "Buscando..." : "Buscar"}
                     </button>
                 </form>
 

@@ -10,10 +10,11 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("fce922bd-c378-469b-a40c-e58049b98462")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("Bookly.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e8a40702e737b8e0f1d16bf2e93a0f176103dcf7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+deb57b0527b45bcd9877ab46eaa304dfb05a8703")]
 [assembly: System.Reflection.AssemblyProductAttribute("Bookly.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Bookly.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
