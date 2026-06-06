@@ -95,7 +95,7 @@ const ReviewCard = ({ review, user, book, likes = [], comments = [], userMap }) 
                         {listaDeCurtidas.length} Curtidas
                     </button>
                     <button 
-                        className={styles.interactionBtn} 
+                        className={styles.interactionBotao} 
                         onClick={() => setMostrarTodosComentarios(!mostrarTodosComentarios)}
                     >
                         <span className={styles.icon}>💬</span>
