@@ -12,7 +12,7 @@ const ReviewCard = ({ review, user, book, likes = [], comments = [], userMap }) 
     const [textoDoNovoComentario, setTextoDoNovoComentario] = useState('');
     const [mostrarTodosComentarios, setMostrarTodosComentarios] = useState(false);
 
-    // Verifica se o usuário atual já curtiu
+    
     const usuarioJaCurtiu = currentUser && listaDeCurtidas.some(c => c.usuarioId === currentUser.id);
 
     const lidarComCurtida = async () => {
