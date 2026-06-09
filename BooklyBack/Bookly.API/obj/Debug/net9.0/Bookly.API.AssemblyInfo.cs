@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Bookly.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+deb57b0527b45bcd9877ab46eaa304dfb05a8703")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+747629e29eee11bbd9269aa484587f3e097c0e50")]
 [assembly: System.Reflection.AssemblyProductAttribute("Bookly.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Bookly.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

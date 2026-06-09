@@ -37,7 +37,7 @@ public class GroqService : IGroqService
         {
             if (l.Nota >= 3)
             {
-                listaLivros += "- \"" + l.Titulo + "\" de " + l.Autor + " (nota: " + l.Nota + "/5)\n";
+                listaLivros += "Título: \"" + l.Titulo + "\" - Autor: " + l.Autor + " (nota: " + l.Nota + "/5)\n";
             }
         }
 
@@ -83,7 +83,7 @@ public class GroqService : IGroqService
 
         var rawJson = await EnviarRequisicao(mensagem, SystemPromptChatbot);
 
-        // Limpa o JSON do markdown se houver
+        
         var inicio = rawJson.IndexOf('{');
         var fim = rawJson.LastIndexOf('}');
         var jsonLimpo = rawJson.Substring(inicio, fim - inicio + 1);

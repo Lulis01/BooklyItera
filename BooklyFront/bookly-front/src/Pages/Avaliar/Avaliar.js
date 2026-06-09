@@ -51,6 +51,13 @@ function Avaliar() {
         }
     }
 
+    let textoBotao;
+    if (buscando) {
+        textoBotao = "Buscando...";
+    } else {
+        textoBotao = "Buscar";
+    }
+
     return (
         <TopBar>
             <div className={estilo.pagina_conteudo}>
@@ -66,7 +73,7 @@ function Avaliar() {
                         className={estilo.input_busca}
                     />
                     <button type="submit" className={estilo.botao_busca} disabled={buscando}>
-                        {buscando ? "Buscando..." : "Buscar"}
+                        {textoBotao}
                     </button>
                 </form>
 
@@ -117,11 +124,11 @@ function Avaliar() {
                                     value={comentario} 
                                     onChange={e => setComentario(e.target.value)}
                                     className={estilo.textarea}
-                                    maxLength={500}
+                                    maxLength={1000}
                                     required
                                 />
                                 <div className={estilo.contador}>
-                                    {comentario.length} / 500 caracteres
+                                    {comentario.length} / 1000 caracteres
                                 </div>
                             </div>
                             <button type="submit" className={estilo.botao_postar}>

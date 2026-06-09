@@ -1,5 +1,4 @@
 using Bookly.Aplicacao.Interfaces;
-using Bookly.Services.DTOs;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Bookly.API.Controllers;
@@ -18,15 +17,19 @@ public class RecomendacaoController : ControllerBase
     [HttpPost("Recomendar")]
     public async Task<IActionResult> Recomendar([FromBody] RecomendacaoRequest request)
     {
-        if (request == null || request.Avaliacoes == null || !request.Avaliacoes.Any())
+        if (request == null || request.UsuarioId == Guid.Empty)
         {
-            return BadRequest(new { mensagem = "É necessário enviar ao menos uma avaliação para gerar recomendações." });
+            return BadRequest(new { mensagem = "É necessário informar o usuário para gerar recomendações." });
         }
 
         try
         {
-            var recomendacoes = await _recomendacaoAplicacao.GerarRecomendacoesAsync(request.Avaliacoes);
+            var recomendacoes = await _recomendacaoAplicacao.GerarRecomendacoesPorUsuarioAsync(request.UsuarioId);
             return Ok(recomendacoes);
+        }
+        catch (InvalidOperationException ex)
+        {
+            return BadRequest(new { mensagem = ex.Message });
         }
         catch (Exception ex)
         {
@@ -37,5 +40,5 @@ public class RecomendacaoController : ControllerBase
 
 public class RecomendacaoRequest
 {
-    public IEnumerable<LivroAvaliadoDto> Avaliacoes { get; set; } = new List<LivroAvaliadoDto>();
+    public Guid UsuarioId { get; set; }
 }

@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import iaAPI from "../../Services/iaAPI";
 import { TopBar } from "../../Componentes/TopBar/TopBar";
+import { useAuth } from "../../Context/AuthContext";
 import estilo from "./Recomendacao.module.css";
 
 const SUGESTOES = [
@@ -13,6 +14,7 @@ const SUGESTOES = [
 ];
 
 function Recomendacao() {
+  const { user } = useAuth();
   const [mensagens, setMensagens] = useState([
     {
       tipo: "bot",
@@ -22,11 +24,47 @@ function Recomendacao() {
   ]);
   const [campoTexto, setCampoTexto] = useState("");
   const [carregando, setCarregando] = useState(false);
+  const [carregandoPorNotas, setCarregandoPorNotas] = useState(false);
   const fimDoChatRef = useRef(null);
 
   useEffect(() => {
     fimDoChatRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [mensagens, carregando]);
+  }, [mensagens, carregando, carregandoPorNotas]);
+
+  async function buscarRecomendacoesPorNotas() {
+    const usuarioId = user?.id || user?.Id;
+    if (!usuarioId || carregandoPorNotas) return;
+
+    setCarregandoPorNotas(true);
+
+    try {
+      const recomendacoes = await iaAPI.pedirRecomendacaoPorNotas(usuarioId);
+
+      setMensagens((listaAnterior) => [
+        ...listaAnterior,
+        {
+          tipo: "bot",
+          texto: "Com base nas suas avaliações, separei estes livros para você! 📚",
+          recomendacoes: recomendacoes || [],
+        },
+      ]);
+    } catch (erro) {
+      const mensagemErro =
+        erro.response?.data?.mensagem ||
+        "Não consegui gerar recomendações pelas suas notas. Avalie alguns livros e tente novamente!";
+
+      setMensagens((listaAnterior) => [
+        ...listaAnterior,
+        {
+          tipo: "bot",
+          texto: mensagemErro,
+          recomendacoes: [],
+        },
+      ]);
+    } finally {
+      setCarregandoPorNotas(false);
+    }
+  }
 
   async function enviarMensagem(textoParaEnviar) {
     const texto = textoParaEnviar ?? campoTexto.trim();
@@ -74,6 +112,15 @@ function Recomendacao() {
         <aside className={estilo.sidebar}>
           <h3 className={estilo.sidebar_titulo}>💡 Dicas de perguntas</h3>
           <ul className={estilo.sugestoes}>
+            <li>
+              <button
+                className={estilo.sugestao_btn}
+                onClick={buscarRecomendacoesPorNotas}
+                disabled={carregando || carregandoPorNotas}
+              >
+                Recomende com base nas minhas notas ⭐
+              </button>
+            </li>
             {SUGESTOES.map((dica, index) => (
               <li key={index}>
                 <button
@@ -122,7 +169,7 @@ function Recomendacao() {
               </div>
             ))}
 
-            {carregando && (
+            {(carregando || carregandoPorNotas) && (
               <div className={`${estilo.mensagem} ${estilo.mensagem_bot}`}>
                 <div className={estilo.avatar}>📚</div>
                 <div className={estilo.balao}>

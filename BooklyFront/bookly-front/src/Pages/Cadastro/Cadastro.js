@@ -76,7 +76,7 @@ export function Cadastro() {
                     <Form.Label>Senha</Form.Label>
                     <Form.Control
                         type="password"
-                        placeholder="Crie uma senha de 6 letras ou mais"
+                        placeholder="Crie uma senha de 6 caracteres ou mais"
                         value={senhaDigitada}
                         onChange={(e) => setSenhaDigitada(e.target.value)}
                         required

@@ -13,9 +13,9 @@ const iaAPI = {
   },
 
   
-  async pedirRecomendacaoPorNotas(listaDeAvaliacoes) {
+  async pedirRecomendacaoPorNotas(usuarioId) {
     try {
-      const resposta = await HTTPClient.post("/api/Recomendacao/Recomendar", { avaliacoes: listaDeAvaliacoes });
+      const resposta = await HTTPClient.post("/api/Recomendacao/Recomendar", { usuarioId });
       return resposta.data;
     } catch (erro) {
       console.error("Erro ao pedir recomendações por notas:", erro);

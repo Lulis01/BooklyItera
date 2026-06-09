@@ -15,8 +15,8 @@ public class Avaliacao
         get => _texto;
         set
         {
-            if (value != null && value.Length > 400)
-                throw new ArgumentException("O texto da avaliação não pode ter mais de 400 caracteres.");
+            if (value != null && value.Length > 1000)
+                throw new ArgumentException("O texto da avaliação não pode ter mais de 1000 caracteres.");
             _texto = value ?? string.Empty;
         }
     }

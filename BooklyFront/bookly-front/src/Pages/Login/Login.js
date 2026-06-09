@@ -37,7 +37,7 @@ export function Login() {
             <img src={logo} alt="Bookly" className={estilo.logo} />
 
             <Form className={estilo.formulario} onSubmit={aoEnviar}>
-                <h3 className="text-center mb-4">Bem-vindo de volta!</h3>
+                <h3 className="text-center mb-4">Bem-vindo ao Bookly!</h3>
                 
                 {mensagemErro !== "" && <div className="alert alert-danger">{mensagemErro}</div>}
 

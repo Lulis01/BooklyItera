@@ -4497,11 +4497,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Repositorio\\Bookly.Repositorio.csproj",
+      "projectUniqueName": "C:\\Users\\luizp\\Downloads\\BooklyItera\\BooklyBack\\Bookly.Repositorio\\Bookly.Repositorio.csproj",
       "projectName": "Bookly.Repositorio",
-      "projectPath": "c:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Repositorio\\Bookly.Repositorio.csproj",
+      "projectPath": "C:\\Users\\luizp\\Downloads\\BooklyItera\\BooklyBack\\Bookly.Repositorio\\Bookly.Repositorio.csproj",
       "packagesPath": "C:\\Users\\luizp\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Repositorio\\obj\\",
+      "outputPath": "C:\\Users\\luizp\\Downloads\\BooklyItera\\BooklyBack\\Bookly.Repositorio\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\luizp\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -4516,8 +4516,8 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "C:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Dominio\\Bookly.Dominio.csproj": {
-              "projectPath": "C:\\Users\\luizp\\OneDrive\\Área de Trabalho\\Bookly\\BooklyItera\\BooklyBack\\Bookly.Dominio\\Bookly.Dominio.csproj"
+            "C:\\Users\\luizp\\Downloads\\BooklyItera\\BooklyBack\\Bookly.Dominio\\Bookly.Dominio.csproj": {
+              "projectPath": "C:\\Users\\luizp\\Downloads\\BooklyItera\\BooklyBack\\Bookly.Dominio\\Bookly.Dominio.csproj"
             }
           }
         }
