@@ -1,10 +1,10 @@
--- ============================================================
--- Stored Procedures para a entidade: Livro
--- ============================================================
 
--- ------------------------------------------------------------
+-- Stored Procedures para a entidade: Livro
+
+
+
 -- Criar
--- ------------------------------------------------------------
+
 CREATE OR ALTER PROCEDURE sp_CriarLivro
     @Id             UNIQUEIDENTIFIER,
     @Titulo         NVARCHAR(300),
@@ -22,9 +22,9 @@ BEGIN
 END
 GO
 
--- ------------------------------------------------------------
+
 -- Obter por Id
--- ------------------------------------------------------------
+
 CREATE OR ALTER PROCEDURE sp_ObterLivroPorId
     @Id UNIQUEIDENTIFIER
 AS
@@ -37,9 +37,9 @@ BEGIN
 END
 GO
 
--- ------------------------------------------------------------
+
 -- Listar todos
--- ------------------------------------------------------------
+
 CREATE OR ALTER PROCEDURE sp_ListarLivros
 AS
 BEGIN
@@ -51,9 +51,9 @@ BEGIN
 END
 GO
 
--- ------------------------------------------------------------
+
 -- Atualizar
--- ------------------------------------------------------------
+
 CREATE OR ALTER PROCEDURE sp_AtualizarLivro
     @Id            UNIQUEIDENTIFIER,
     @Titulo        NVARCHAR(300),
@@ -75,9 +75,9 @@ BEGIN
 END
 GO
 
--- ------------------------------------------------------------
+
 -- Deletar
--- ------------------------------------------------------------
+
 CREATE OR ALTER PROCEDURE sp_DeletarLivro
     @Id UNIQUEIDENTIFIER
 AS

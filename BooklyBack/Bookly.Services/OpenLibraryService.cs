@@ -8,59 +8,80 @@ namespace Bookly.Services;
 public class OpenLibraryService : IOpenLibraryService
 {
     private readonly HttpClient _httpClient;
-    private const string BaseUrl = "https://openlibrary.org";
 
     public OpenLibraryService(HttpClient httpClient)
     {
         _httpClient = httpClient;
-        _httpClient.BaseAddress = new Uri(BaseUrl);
+        _httpClient.BaseAddress = new Uri("https://openlibrary.org");
     }
 
     public async Task<IEnumerable<Livro>> BuscarLivrosPorTituloAsync(string titulo)
     {
         if (string.IsNullOrWhiteSpace(titulo))
-            return Enumerable.Empty<Livro>();
+            return new List<Livro>();
 
-        // Usar o parâmetro 'title' foca estritamente em propriedades de livros/obras 
-        var url = $"/search.json?title={Uri.EscapeDataString(titulo)}&limit=20";
+        var url = "/search.json?title=" + Uri.EscapeDataString(titulo) + "&limit=15";
         var response = await _httpClient.GetAsync(url);
-        
+
         response.EnsureSuccessStatusCode();
 
         var content = await response.Content.ReadAsStringAsync();
         var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-        
         var searchResult = JsonSerializer.Deserialize<OpenLibrarySearchResponse>(content, options);
 
-        if (searchResult == null || searchResult.Docs == null || !searchResult.Docs.Any())
-            return Enumerable.Empty<Livro>();
+        if (searchResult == null || searchResult.Docs == null || searchResult.Docs.Count == 0)
+            return new List<Livro>();
 
-        // Mapeamento do JSON do OpenLibrary para a entidade Livro local
         var livros = new List<Livro>();
+
         foreach (var doc in searchResult.Docs)
         {
-            var isbn = doc.Isbn != null && doc.Isbn.Any() ? doc.Isbn.First() : string.Empty;
-            // ISBN no banco é NVARCHAR(20) — truncar caso venha maior da API externa
-            if (isbn.Length > 20) isbn = isbn.Substring(0, 20);
+            
+            string isbn = string.Empty;
+            if (doc.Isbn != null && doc.Isbn.Count > 0)
+                isbn = doc.Isbn[0];
+            if (isbn.Length > 20)
+                isbn = isbn.Substring(0, 20);
 
-            var autor = doc.AuthorName != null && doc.AuthorName.Any()
-                ? string.Join(", ", doc.AuthorName).Substring(0, Math.Min(string.Join(", ", doc.AuthorName).Length, 200))
-                : "Desconhecido";
+            
+            string autor = "Desconhecido";
+            if (doc.AuthorName != null && doc.AuthorName.Count > 0)
+            {
+                autor = string.Join(", ", doc.AuthorName);
+                if (autor.Length > 200)
+                    autor = autor.Substring(0, 200);
+            }
 
-            var genero = doc.Subject != null && doc.Subject.Any()
-                ? doc.Subject.First().Substring(0, Math.Min(doc.Subject.First().Length, 100))
-                : string.Empty;
+            
+            string genero = string.Empty;
+            if (doc.Subject != null && doc.Subject.Count > 0)
+            {
+                genero = doc.Subject[0];
+                if (genero.Length > 100)
+                    genero = genero.Substring(0, 100);
+            }
 
-            livros.Add(new Livro
+            
+            string tituloLivro = "Sem título";
+            if (doc.Title != null)
+            {
+                tituloLivro = doc.Title;
+                if (tituloLivro.Length > 300)
+                    tituloLivro = tituloLivro.Substring(0, 300);
+            }
+
+            var livro = new Livro
             {
                 Id = Guid.NewGuid(),
-                Titulo = doc.Title?.Substring(0, Math.Min(doc.Title.Length, 300)) ?? "Sem título",
+                Titulo = tituloLivro,
                 Autor = autor,
                 AnoPublicacao = doc.FirstPublishYear ?? 0,
                 ISBN = isbn,
                 Genero = genero,
                 DataCriacao = DateTime.UtcNow
-            });
+            };
+
+            livros.Add(livro);
         }
 
         return livros;

@@ -4,6 +4,6 @@ namespace Bookly.Aplicacao.Interfaces;
 
 public interface IRecomendacaoAplicacao
 {
-    Task<IEnumerable<LivroRecomendadoDto>> GerarRecomendacoesAsync(IEnumerable<LivroAvaliadoDto> avaliacoes);
+    Task<IEnumerable<LivroRecomendadoDto>> GerarRecomendacoesPorUsuarioAsync(Guid usuarioId);
     Task<ChatbotResponse> EnviarMensagemChatbotAsync(string mensagem);
 }

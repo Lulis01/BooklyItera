@@ -27,6 +27,10 @@ public class UsuarioAplicacao : IUsuarioAplicacao
         if (string.IsNullOrEmpty(usuario.SenhaHash))
             throw new Exception("Senha não pode ser vazia");
 
+        var usuarioExistente = await _usuarioRepositorio.ObterPorEmailAsync(usuario.Email);
+        if (usuarioExistente != null)
+            throw new Exception("Este e-mail já está cadastrado.");
+
         return await _usuarioRepositorio.CriarAsync(usuario);
     }
 
@@ -41,6 +45,10 @@ public class UsuarioAplicacao : IUsuarioAplicacao
 
         if (string.IsNullOrEmpty(usuario.Email))
             throw new Exception("Email não pode ser vazio");
+
+        var usuarioComMesmoEmail = await _usuarioRepositorio.ObterPorEmailAsync(usuario.Email);
+        if (usuarioComMesmoEmail != null && usuarioComMesmoEmail.Id != usuario.Id)
+            throw new Exception("Este e-mail já está em uso por outro usuário.");
 
         usuarioExistente.Nome = usuario.Nome;
         usuarioExistente.Email = usuario.Email;

@@ -1,37 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styles from './ReviewCard.module.css';
 import { useAuth } from '../../Context/AuthContext';
 import ComentarioAPI from '../../Services/comentarioAPI';
 import CurtidaAPI from '../../Services/curtidaAPI';
 
-const ReviewCard = ({ review, user, book, likes: initialLikes, comments: initialComments, userMap }) => {
+const ReviewCard = ({ review, user, book, likes = [], comments = [], userMap }) => {
     const { user: currentUser, isAuthenticated } = useAuth();
 
-    const [listaDeComentarios, setListaDeComentarios] = useState(initialComments || []);
-    const [listaDeCurtidas, setListaDeCurtidas] = useState(initialLikes || []);
+    const [listaDeComentarios, setListaDeComentarios] = useState(comments);
+    const [listaDeCurtidas, setListaDeCurtidas] = useState(likes);
     const [textoDoNovoComentario, setTextoDoNovoComentario] = useState('');
-    const [estaCarregando, setEstaCarregando] = useState(false);
     const [mostrarTodosComentarios, setMostrarTodosComentarios] = useState(false);
-    const [usuarioJaCurtiu, setUsuarioJaCurtiu] = useState(false);
 
-    useEffect(() => {
-        if (currentUser && listaDeCurtidas) {
-            const encontrouCurtida = listaDeCurtidas.some(curtida => curtida.usuarioId === currentUser.id);
-            setUsuarioJaCurtiu(encontrouCurtida);
-        }
-    }, [currentUser, listaDeCurtidas]);
-
-    const mostrarEstrelas = (nota) => {
-        let estrelas = '';
-        for (let i = 0; i < 5; i++) {
-            if (i < nota) {
-                estrelas += '★';
-            } else {
-                estrelas += '☆';
-            }
-        }
-        return estrelas;
-    };
+    
+    const usuarioJaCurtiu = currentUser && listaDeCurtidas.some(c => c.usuarioId === currentUser.id);
 
     const lidarComCurtida = async () => {
         if (!isAuthenticated) {
@@ -46,7 +28,6 @@ const ReviewCard = ({ review, user, book, likes: initialLikes, comments: initial
         try {
             const novaCurtida = await CurtidaAPI.criarAsync(currentUser.id, review.id);
             setListaDeCurtidas([...listaDeCurtidas, novaCurtida]);
-            setUsuarioJaCurtiu(true);
         } catch (erro) {
             console.log(erro);
         }
@@ -60,7 +41,6 @@ const ReviewCard = ({ review, user, book, likes: initialLikes, comments: initial
         }
 
         try {
-            setEstaCarregando(true);
             const comentarioCriado = await ComentarioAPI.criarAsync(
                 currentUser.id,
                 review.id,
@@ -69,21 +49,13 @@ const ReviewCard = ({ review, user, book, likes: initialLikes, comments: initial
             
             setListaDeComentarios([...listaDeComentarios, comentarioCriado]);
             setTextoDoNovoComentario('');
-            setMostrarTodosComentarios(true);
         } catch (erro) {
             console.log(erro);
             alert("Erro ao enviar comentário.");
-        } finally {
-            setEstaCarregando(false);
         }
     };
 
-    let comentariosParaExibir = [];
-    if (mostrarTodosComentarios) {
-        comentariosParaExibir = listaDeComentarios;
-    } else {
-        comentariosParaExibir = listaDeComentarios.slice(0, 1);
-    }
+    const estrelas = '★'.repeat(review.nota) + '☆'.repeat(5 - review.nota);
 
     return (
         <div className={styles.card}>
@@ -98,7 +70,7 @@ const ReviewCard = ({ review, user, book, likes: initialLikes, comments: initial
                     </span>
                 </div>
                 <div className={styles.rating}>
-                    {mostrarEstrelas(review.nota)}
+                    {estrelas}
                 </div>
             </div>
 
@@ -123,7 +95,7 @@ const ReviewCard = ({ review, user, book, likes: initialLikes, comments: initial
                         {listaDeCurtidas.length} Curtidas
                     </button>
                     <button 
-                        className={styles.interactionBtn} 
+                        className={styles.interactionBotao} 
                         onClick={() => setMostrarTodosComentarios(!mostrarTodosComentarios)}
                     >
                         <span className={styles.icon}>💬</span>
@@ -154,14 +126,13 @@ const ReviewCard = ({ review, user, book, likes: initialLikes, comments: initial
                                     value={textoDoNovoComentario}
                                     onChange={(e) => setTextoDoNovoComentario(e.target.value)}
                                     className={styles.commentInput}
-                                    disabled={estaCarregando}
                                 />
                                 <button 
                                     type="submit" 
                                     className={styles.commentSubmitBtn}
-                                    disabled={estaCarregando || textoDoNovoComentario.trim() === ''}
+                                    disabled={textoDoNovoComentario.trim() === ''}
                                 >
-                                    {estaCarregando ? '...' : 'Enviar'}
+                                    Enviar
                                 </button>
                             </form>
                         ) : (

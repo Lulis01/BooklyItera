@@ -15,14 +15,18 @@ function Avaliar() {
     const [livroEscolhido, setLivroEscolhido] = useState(null);
     const [notaDada, setNotaDada] = useState(5);
     const [comentario, setComentario] = useState('');
+    const [buscando, setBuscando] = useState(false);
 
     async function procurarLivros(evento) {
         evento.preventDefault();
+        setBuscando(true);
         try {
             const resposta = await LivroAPI.importarAsync(termoBusca);
             setListaLivros(resposta.importados || []);
         } catch (erro) {
             alert("Ops! Deu erro ao buscar os livros.");
+        } finally {
+            setBuscando(false);
         }
     }
 
@@ -47,6 +51,13 @@ function Avaliar() {
         }
     }
 
+    let textoBotao;
+    if (buscando) {
+        textoBotao = "Buscando...";
+    } else {
+        textoBotao = "Buscar";
+    }
+
     return (
         <TopBar>
             <div className={estilo.pagina_conteudo}>
@@ -61,8 +72,8 @@ function Avaliar() {
                         onChange={e => setTermoBusca(e.target.value)} 
                         className={estilo.input_busca}
                     />
-                    <button type="submit" className={estilo.botao_busca}>
-                        Buscar
+                    <button type="submit" className={estilo.botao_busca} disabled={buscando}>
+                        {textoBotao}
                     </button>
                 </form>
 
@@ -113,11 +124,11 @@ function Avaliar() {
                                     value={comentario} 
                                     onChange={e => setComentario(e.target.value)}
                                     className={estilo.textarea}
-                                    maxLength={500}
+                                    maxLength={1000}
                                     required
                                 />
                                 <div className={estilo.contador}>
-                                    {comentario.length} / 500 caracteres
+                                    {comentario.length} / 1000 caracteres
                                 </div>
                             </div>
                             <button type="submit" className={estilo.botao_postar}>
